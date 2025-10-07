@@ -3,12 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>Our Scrapbook ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+  <main class="scrapbook-page">
+    <h1 class="title-sticker">For My Wifey In Every Universe 💌</h1>
+
+    <div class="tabs-container">
+      <div class="tabs-nav">
+        <button class="tabs-link active" data-tab="content1">A Poem</button>
+        <button class="tabs-link" data-tab="content2">Date Ideas!</button>
+        <button class="tabs-link" data-tab="content3">Photo Corner</button>
+      </div>
+
+      <div class="tabs-content-wrapper">
+        <div id="content1" class="tabs-content active">
+          <div class="paper-note">
+            <h3>Sonnet 40: Take all my loves...</h3>
+            <p class="author">by William Shakespeare</p>
+            <pre class="poem">
+Take all my loves, my love, yea, take them all:
+  What hast thou then more than thou hadst before?
+  No love, my love, that thou mayst true love call—
+  All mine was thine before thou hadst this more.
+  Then if for my love thou my love receivest,
+  I cannot blame thee for my love thou usest;
+  But yet be blamed if thou this self deceivest
+  By wilful taste of what thyself refusest.
+  I do forgive thy robb’ry, gentle thief,
+  Although thou steal thee all my poverty;
+  And yet love knows it is a greater grief
+  To bear love’s wrong than hate’s known injury.
+      Lascivious grace, in whom all ill well shows,
+      Kill me with spites, yet we must not be foes.
+            </pre>
+          </div>
+        </div>
+        
+        <div id="content2" class="tabs-content">
+            <h3>Our Next Little Adventure!</h3>
+            <ul class="todo-list">
+                <li>📚 Book Club for Two: Choose a book to read over a few weeks. Schedule a weekly "book club" meeting to discuss the latest chapters over coffee or tea.</li>
+                <li>🎬 Watch a Documentary: Pick a documentary on a topic you're both curious about. Watch it at the same time and have a deep discussion afterward.</li>
+                <li>🍰 Bake-Off Challenge: Pick something to bake, like cookies or brownies. Follow the same recipe and compare your final products.</li>
+                <li>👟 Go for a "Walk and Talk": Put in your headphones and go for a walk in your respective parks or neighborhoods while on the phone. Describe the scenery, the people, and the weather.</li>
+                <li>👥 People-Watch: Each of you goes to a coffee shop or a park bench. Sip your drink and describe the interesting things and people you see to each other.</li>
+            </ul>
+        </div>
+
+        <div id="content3" class="tabs-content">
+            <h3>Some of My Favorite Moments</h3>
+            <div class="photo-gallery">
+                <div class="polaroid">
+                    <img src="images/wingstop.jpg" height="160px" width="160px">
+                    <p>That one time at the cafe</p>
+                </div>
+                <div class="polaroid">
+                    <img src="images/moon.jpg" height="160px" width="160px">
+                    <p>My own Crescent</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
 </body>
 </html>

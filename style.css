@@ -1,1 +1,102 @@
-/* Add styles here */
+/* Font Imports and Root Variables (No Change) */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nanum+Pen+Script&display=swap');
+:root {
+    --bg-paper: #fdfaf4;
+    --text-color: #3b3a39;
+    --header-color: #e57373;
+    --tape-1: #a5d6a7;
+    --tape-2: #ffcc80;
+    --tape-3: #b39ddb;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Body and Scrapbook Page Styles (No Change) */
+body {
+    background-color: #e3dcd3;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    font-family: 'Gaegu', cursive;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Important: to prevent selecting text while dragging */
+    user-select: none;
+}
+.scrapbook-page {
+    background: var(--bg-paper);
+    padding: 30px 40px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid #ddd;
+}
+
+/* Title and Tabs Styles (No Change) */
+.title-sticker { font-family: 'Nanum Pen Script', cursive; font-size: 3.5rem; color: var(--header-color); text-align: center; margin: 0 0 30px 0; transform: rotate(-2deg); }
+.tabs-nav { display: flex; justify-content: center; margin-bottom: 20px; border: none; }
+.tabs-link { font-family: 'Gaegu', cursive; font-weight: 700; font-size: 1.2rem; border: none; padding: 8px 25px; cursor: pointer; transition: all 0.2s ease; opacity: 0.7; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
+.tabs-link:hover { transform: translateY(-3px); opacity: 1; }
+.tabs-link.active { transform: translateY(-3px); opacity: 1; }
+.tabs-link:nth-child(1) { background-color: var(--tape-1); transform: rotate(-3deg); }
+.tabs-link:nth-child(2) { background-color: var(--tape-2); transform: rotate(2deg); }
+.tabs-link:nth-child(3) { background-color: var(--tape-3); transform: rotate(-2deg); }
+.tabs-content { display: none; animation: popIn 0.4s ease-out; }
+.tabs-content.active { display: block; }
+@keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.paper-note { background: #fff; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 3px; transform: rotate(1deg); }
+.poem { font-family: 'Courier New', monospace; white-space: pre-wrap; line-height: 1.6; }
+
+/* --- Inter-active Checklist --- */
+.todo-list { list-style: none; padding: 0; }
+.todo-list li {
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border-bottom: 2px dashed #eee;
+    cursor: pointer; /* Add cursor pointer to show it's clickable */
+    transition: all 0.3s ease;
+}
+.todo-list li::before { content: '☐ '; font-size: 1.5rem; margin-right: 10px; }
+
+/* NEW: Style for checked items */
+.todo-list li.checked {
+    text-decoration: line-through;
+    color: #aaa;
+    opacity: 0.7;
+}
+.todo-list li.checked::before {
+    content: '☑ '; /* Change box to a checkmark */
+}
+
+
+/* --- Draggable Polaroids --- */
+.photo-gallery { position: relative; min-height: 250px; }
+.polaroid {
+    background: #fff;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+    margin: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: grab; /* Show a grab cursor */
+    /* Position absolute is needed for dragging */
+    position: absolute; 
+}
+.polaroid p { font-family: 'Nanum Pen Script', cursive; font-size: 1.5rem; text-align: center; margin: 15px 0 0 0; }
+.photo-placeholder { background: #eee; width: 150px; height: 150px; }
+
+/* Positioning the polaroids initially */
+.polaroid:nth-child(1) { top: 0; left: 20px; transform: rotate(-5deg); }
+.polaroid:nth-child(2) { top: 20px; left: 220px; transform: rotate(4deg); }
+.polaroid:nth-child(3) { top: 10px; left: 450px; transform: rotate(-3deg); }
+
+/* NEW: Style for the polaroid being dragged */
+.polaroid.dragging {
+    cursor: grabbing;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+    z-index: 1000; /* Make sure it's on top of other elements */
+}
